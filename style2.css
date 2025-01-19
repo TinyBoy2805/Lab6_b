@@ -1,0 +1,310 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+.container {
+    width: 100vw;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 1rem;
+    gap: 1rem;
+    padding: 1rem 0;
+    overflow: hidden;
+}
+
+.container .slide {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container .slide .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    flex-direction: column;
+    min-width: 100px;
+    max-width: 250px;
+    width: fit-content;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 1rem 0.5rem;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.container .slide .box.active {
+    background-color: #333;
+    color: #fff;
+    transform: scale(1.05); /* Tăng nhẹ kích thước khi active */
+}
+
+.container .slide .box h4,
+.container .slide .box p {
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.container .slide .box h4 {
+    margin-bottom: 1rem;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.container .slide .box p {
+    margin-top: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.container #next, .container #prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.container #next:hover, .container #prev:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1); /* Hiệu ứng phóng to khi hover */
+}
+
+#prev {
+    left: 1rem;
+}
+
+#next {
+    right: 1rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem 2% 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+main section {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    left: 18rem;
+}
+
+main section .content {
+    width: 300px;
+    height: 350px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content #img {
+    width: 100%;
+    height: 150px;
+    background-color: #ddd;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.content #img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#small-content {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#small-content h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#small-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+#small-content .rating {
+    font-size: 14px;
+    color: #ffcc00;
+    display: flex;
+    align-items: center;
+}
+
+#small-content .star {
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+#small-content .reviews {
+    font-size: 12px;
+    color: #888;
+}
+
+#small-content .price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 10px;
+}
+
+#small-content button {
+    background-color: #ffeb3b;
+    color: #333;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#small-content button:hover {
+    background-color: #fbc02d;
+    transform: translateY(-2px); /* Hiệu ứng nâng lên khi hover */
+}
+
+#section-next, #section-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#section-next:hover, #section-prev:hover {
+    background-color: #444;
+    transform: scale(1.1);
+}
+
+#section-prev {
+    left: 1rem;
+}
+
+#section-next {
+    right: 1rem;
+}
+
+#show {
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+    border: none;
+    padding: 1rem 2%;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    cursor: pointer;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+#show:hover {
+    color: #ffcc00;
+    transform: scale(1.05);
+}
+
+
+#second-content {
+    width: 320px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    display: none;
+}
+
+#second-content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#second-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+#second-content ul {
+    list-style-type: disc; /* Dấu chấm cho các mục */
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+#second-content ul li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+    line-height: 1.5; /* Khoảng cách dòng để dễ đọc */
+}
+
+#second-content ul li:before {
+    content: "•"; /* Dấu chấm tròn */
+    color: #ffcc00; /* Màu vàng cho dấu chấm */
+    font-size: 16px; /* Tăng kích thước dấu chấm */
+    margin-right: 10px; /* Khoảng cách giữa dấu chấm và văn bản */
+}
+
+#second-content p:last-child {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
